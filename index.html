@@ -7,5 +7,33 @@
 </head>
 <body>
     
+    <h1>Pesquisa de Usuário</h1>
+
+    <form action="" method="get">
+
+        <fieldset>
+            <label for="nomeUsuario">Nome do usuário:</label>
+            <input 
+                type="text"
+                name="nomeUsuario" 
+                id="nomeUsuarioId" required>
+            <br>
+            <label for="idadeUsuario">Idade do usuário:</label>
+            <input 
+                type="number" 
+                name="idadeUsuario" 
+                id="idadeUsuarioId"
+                min="18" max="120">
+            <br>
+            <label for="dtNascimento">Data de nascimento:</label>
+            <input type="date" name="dtNascimento" id="dtNascimentoId">
+        </fieldset>
+        
+
+        <button type="submit">Enviar dados</button>
+        <button type="reset">Limpar</button>
+
+    </form>
+
 </body>
 </html>
