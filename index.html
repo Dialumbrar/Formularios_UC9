@@ -3,37 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pesquisa</title>
+    <title>Pesquisa de Opinião - Code & Coffee</title>
+    <link rel="stylesheet" href="css/base.css">
 </head>
 <body>
-    
-    <h1>Pesquisa de Usuário</h1>
 
-    <form action="" method="get">
+    <main class="container">
+        <header>
+            <h1>Pesquisa de Opinião</h1>
+            <p>Code & Coffee</p>
+        </header>
 
-        <fieldset>
-            <label for="nomeUsuario">Nome do usuário:</label>
-            <input 
-                type="text"
-                name="nomeUsuario" 
-                id="nomeUsuarioId" required>
-            <br>
-            <label for="idadeUsuario">Idade do usuário:</label>
-            <input 
-                type="number" 
-                name="idadeUsuario" 
-                id="idadeUsuarioId"
-                min="18" max="120">
-            <br>
-            <label for="dtNascimento">Data de nascimento:</label>
-            <input type="date" name="dtNascimento" id="dtNascimentoId">
-        </fieldset>
-        
+        <form action="" method="post" enctype="multipart/form-data">
 
-        <button type="submit">Enviar dados</button>
-        <button type="reset">Limpar</button>
+            <!-- DADOS PESSOAIS -->
+            <fieldset>
+                <legend>Dados Pessoais</legend>
 
-    </form>
+                <div class="campo">
+                    <label for="nome">Nome: <span class="obrigatorio">*</span></label>
+                    <input type="text" name="nome" id="nome" required placeholder="O seu nome completo">
+                </div>
+
+                <div class="campo-duplo">
+                    <div class="campo">
+                        <label for="idade">Idade: <span class="obrigatorio">*</span></label>
+                        <input type="number" name="idade" id="idade" min="12" max="100" required placeholder="12 a 100">
+                    </div>
+
+                    <div class="campo">
+                        <label for="dtNascimento">Data de nascimento:</label>
+                        <input type="date" name="dtNascimento" id="dtNascimento">
+                    </div>
+                </div>
+
+                <div class="campo-duplo">
+                    <div class="campo">
+                        <label for="email">E-mail: <span class="obrigatorio">*</span></label>
+                        <input type="email" name="email" id="email" required placeholder="exemplo@email.com">
+                    </div>
+
+                    <div class="campo">
+                        <label for="telefone">Telefone (11 dígitos):</label>
+                        <input type="tel" name="telefone" id="telefone" pattern="[0-9]{11}" placeholder="Ex.: 11999998888" title="Introduza exatamente 11 dígitos numéricos (DDD + número)">
+                    </div>
+                </div>
+
+                <div class="campo">
+                    <label for="foto">Upload de foto:</label>
+                    <input type="file" name="foto" id="foto" accept="image/*">
+                </div>
+            </fieldset>
+
+            <!-- PERFIL -->
+            <fieldset>
+                <legend>Perfil</legend>
+
+                <div class="campo">
+                    <span class="label-titulo">Género:</span>
+                    <div class="opcoes-inline">
+                        <label><input type="radio" name="genero" value="feminino"> Feminino</label>
+                        <label><input type="radio" name="genero" value="masculino"> Masculino</label>
+                        <label><input type="radio" name="genero" value="outro"> Outro</label>
+                        <label><input type="radio" name="genero" value="nao-informar"> Prefiro não informar</label>
+                    </div>
+                </div>
+
+                <div class="campo-duplo">
+                    <div class="campo">
+                        <label for="estadoCivil">Estado Civil:</label>
+                        <select name="estadoCivil" id="estadoCivil">
+                            <option value="">Selecione...</option>
+                            <option value="solteiro">Solteiro(a)</option>
+                            <option value="casado">Casado(a)</option>
+                            <option value="divorciado">Divorciado(a)</option>
+                            <option value="viuvo">Viúvo(a)</option>
+                            <option value="uniao-estavel">União Estável</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label for="estado">Estado:</label>
+                        <select name="estado" id="estado">
+                            <option value="">Selecione...</option>
+                            <option value="SP">São Paulo</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="PR">Paraná</option>
+                            <option value="outros">Outro</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="campo">
+                    <label for="cidade">Cidade:</label>
+                    <input type="text" name="cidade" id="cidade" placeholder="A sua cidade">
+                </div>
+            </fieldset>
+
+            <!-- HÁBITOS -->
+            <fieldset>
+                <legend>Hábitos</legend>
+
+                <div class="campo">
+                    <span class="label-titulo">Redes Sociais utilizadas:</span>
+                    <div class="opcoes-grid">
+                        <label><input type="checkbox" name="redesSociais" value="instagram"> Instagram</label>
+                        <label><input type="checkbox" name="redesSociais" value="linkedin"> LinkedIn</label>
+                        <label><input type="checkbox" name="redesSociais" value="youtube"> YouTube</label>
+                        <label><input type="checkbox" name="redesSociais" value="twitter-x"> X / Twitter</label>
+                        <label><input type="checkbox" name="redesSociais" value="tiktok"> TikTok</label>
+                        <label><input type="checkbox" name="redesSociais" value="facebook"> Facebook</label>
+                    </div>
+                </div>
+
+                <div class="campo-duplo">
+                    <div class="campo">
+                        <label for="estiloMusical">Estilo Musical favorito:</label>
+                        <input type="text" list="sugestoesMusica" name="estiloMusical" id="estiloMusical" placeholder="Escolha ou digite...">
+                        <datalist id="sugestoesMusica">
+                            <option value="Rock">
+                            <option value="Pop">
+                            <option value="MPB">
+                            <option value="Jazz / Blues">
+                            <option value="Eletrónica">
+                            <option value="Clássica">
+                            <option value="Sertanejo">
+                        </datalist>
+                    </div>
+
+                    <div class="campo">
+                        <label for="corFavorita">Cor Favorita:</label>
+                        <input type="color" name="corFavorita" id="corFavorita" value="#4a2c11">
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- OPINIÃO -->
+            <fieldset>
+                <legend>Opinião</legend>
+
+                <div class="campo">
+                    <span class="label-titulo">Satisfação geral:</span>
+                    <div class="opcoes-inline">
+                        <label><input type="radio" name="satisfacao" value="otima"> Ótima</label>
+                        <label><input type="radio" name="satisfacao" value="boa"> Boa</label>
+                        <label><input type="radio" name="satisfacao" value="regular"> Regular</label>
+                        <label><input type="radio" name="satisfacao" value="ruim"> Ruim</label>
+                    </div>
+                </div>
+
+                <div class="campo">
+                    <label for="comentario">Comentário:</label>
+                    <textarea name="comentario" id="comentario" rows="4" placeholder="Deixe aqui as suas sugestões, críticas ou elogios..."></textarea>
+                </div>
+            </fieldset>
+
+            <!-- CONFIRMAÇÕES -->
+            <fieldset>
+                <legend>Confirmações</legend>
+
+                <div class="campo-check">
+                    <input type="checkbox" name="consentimentoLGPD" id="consentimentoLGPD" required>
+                    <label for="consentimentoLGPD">
+                        Concordo com o tratamento dos meus dados pessoais em conformidade com a LGPD. <span class="obrigatorio">*</span>
+                    </label>
+                </div>
+
+                <div class="campo-check">
+                    <input type="checkbox" name="receberResultados" id="receberResultados">
+                    <label for="receberResultados">Desejo receber os resultados desta pesquisa por e-mail.</label>
+                </div>
+            </fieldset>
+
+            <!-- BOTÕES -->
+            <div class="acoes">
+                <button type="submit" class="btn btn-enviar">Enviar dados</button>
+                <button type="reset" class="btn btn-limpar">Limpar</button>
+            </div>
+
+        </form>
+    </main>
 
 </body>
 </html>
